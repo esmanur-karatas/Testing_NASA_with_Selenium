@@ -1,0 +1,31 @@
+package negative_Test;
+
+import org.testng.annotations.Test;
+import utilities.ReusableMethods;
+
+public class Nasa_Newsletter_Form_Validation_Test extends Base_Test {
+    @Test
+    public void Nasa_Newsletter_Form_Validation_Test() throws InterruptedException {
+//        1.	Go to https://www.nasa.gov/
+//        2.	Once the homepage has loaded, click on "News & Events" in the top menu.
+        tabbar_new_and_events_page.clickNewAndEventsButton();
+
+//        3.	On the page that opens, click on the "Newsletters" heading.
+        tabbar_new_and_events_page.clickNewslettersButton();
+
+//        4.	Scroll until "Sign Up" appears on the page that opens.
+        ReusableMethods.scrollPageThree();
+
+//        5.	Click Sign Up.
+        newsletters_page.clickSignUpLink();
+
+//        6.	Leave the data in the form on the opened page blank.
+//        7.	Click the Subscribe button.
+        subscribe_form_page.clickSubscribeButton();
+
+//        8.	Check whether the warning message "This field is required" is written in the email.
+        ReusableMethods.sleep(6000);
+        subscribe_form_page.verifyEmailErrorMessageText("This field is required.");
+
+    }
+}

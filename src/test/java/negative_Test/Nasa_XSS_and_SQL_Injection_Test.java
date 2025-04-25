@@ -1,0 +1,26 @@
+package negative_Test;
+
+import org.testng.annotations.Test;
+
+public class Nasa_XSS_and_SQL_Injection_Test extends Base_Test {
+    @Test
+    public void Nasa_XSS_and_SQL_Injection_Test() {
+//        1.	Go to https://www.nasa.gov/
+//        2.	Enter an XSS (Cross-Site Scripting) attack code like
+//        < script> alert('XSS')</script> in the search box at the top right of the page and press Enter.
+        search_page.inputSerachBox("< script> alert('XSS')</script>");
+
+//        3.	Verify that this code is not executed on the search results page
+//        (e.g. no warning box appears) and is displayed as text as is.
+        search_page.verifySearchResultTitle("Search Results for: alert(\\'XSS\\')");
+
+//        4.	In the search box on the search results page,
+//        enter a potential SQL injection phrase such as 'sql injection attempt' and press Enter.
+        search_page.inputSerachBox("sql injection attempt");
+
+//        5.	Verify that the website responds to such input without error and that it
+//        does not cause an unexpected database error or security vulnerability.
+        search_page.inputSerachBox("Search Results for: sql injection attempt");
+
+    }
+}
