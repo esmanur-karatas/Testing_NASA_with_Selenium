@@ -1,9 +1,26 @@
 package positive_Test;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page.Moon_Page;
+import page.Search_Page;
+import utilities.ConfigurationReader;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class Content_Access_and_Video_Verification_Test_with_Moon_Search extends Base_Test {
+public class Content_Access_and_Video_Verification_Test_with_Moon_Search {
+    Search_Page search_page;
+    Moon_Page moon_page;
+    String url = ConfigurationReader.getProperty("address");
+
+    @BeforeMethod
+    public void SetUp() {
+        Driver.getDriver().get(url);
+        search_page = new Search_Page();
+        moon_page = new Moon_Page();
+    }
+
     @Test
     public void content_Access_and_Video_Verification_Test_with_Moon_Search() throws InterruptedException {
 //        1.	Go to https://www.nasa.gov/
@@ -32,5 +49,10 @@ public class Content_Access_and_Video_Verification_Test_with_Moon_Search extends
 //        8.	Stop or close the video by clicking again.
         moon_page.clickPauseVideoButton();
 
+    }
+
+    @AfterMethod
+    public void TearnDown() {
+        Driver.closeDriver();
     }
 }

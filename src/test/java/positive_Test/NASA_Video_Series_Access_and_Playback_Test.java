@@ -1,9 +1,29 @@
 package positive_Test;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page.Series_Our_Alien_Earth_Page;
+import page.Series_Page;
+import page.Tabbar_New_And_Events_Page;
+import utilities.ConfigurationReader;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class NASA_Video_Series_Access_and_Playback_Test extends Base_Test {
+public class NASA_Video_Series_Access_and_Playback_Test {
+    Tabbar_New_And_Events_Page tabbar_new_and_events_page;
+    Series_Page series_page;
+    Series_Our_Alien_Earth_Page series_our_alien_earth_page;
+
+    String url = ConfigurationReader.getProperty("address");
+
+    @BeforeMethod
+    public void SetUp() {
+        Driver.getDriver().get(url);
+        tabbar_new_and_events_page = new Tabbar_New_And_Events_Page();
+        series_page = new Series_Page();
+        series_our_alien_earth_page = new Series_Our_Alien_Earth_Page();
+    }
 
     @Test
     public void nasa_Video_Series_Access_and_Playback_Test() throws InterruptedException {
@@ -30,6 +50,10 @@ public class NASA_Video_Series_Access_and_Playback_Test extends Base_Test {
         ReusableMethods.sleep(6000);
         series_our_alien_earth_page.clickPlayVideo();
         ReusableMethods.sleep(6000);
+    }
 
+    @AfterMethod
+    public void TearnDown() {
+        Driver.closeDriver();
     }
 }

@@ -1,9 +1,26 @@
 package positive_Test;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page.EBooks_Page;
+import page.Tabbar_Multimedia_Page;
+import utilities.ConfigurationReader;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class NASA_eBook_Download_Test extends Base_Test {
+public class NASA_eBook_Download_Test {
+    Tabbar_Multimedia_Page tabbar_multimedia_page;
+    EBooks_Page eBooks_page;
+    String url = ConfigurationReader.getProperty("address");
+
+    @BeforeMethod
+    public void SetUp() {
+        Driver.getDriver().get(url);
+        tabbar_multimedia_page = new Tabbar_Multimedia_Page();
+        eBooks_page = new EBooks_Page();
+    }
+
     @Test
     public void NASA_eBook_Download_Test() throws InterruptedException {
 //        1.	Go to https://www.nasa.gov/
@@ -30,5 +47,10 @@ public class NASA_eBook_Download_Test extends Base_Test {
 
 //        9.	Check whether the Book has come down in the downloaded ones.
         ReusableMethods.isFileDownloaded("sp-4413-epub.epub");
+    }
+
+    @AfterMethod
+    public void TearnDown() {
+        Driver.closeDriver();
     }
 }

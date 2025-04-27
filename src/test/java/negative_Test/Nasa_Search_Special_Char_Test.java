@@ -1,8 +1,22 @@
 package negative_Test;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page.Search_Page;
+import utilities.ConfigurationReader;
+import utilities.Driver;
 
-public class Nasa_Search_Special_Char_Test extends Base_Test {
+public class Nasa_Search_Special_Char_Test {
+    Search_Page search_page;
+    String url = ConfigurationReader.getProperty("address");
+
+    @BeforeMethod
+    public void SetUp() {
+        Driver.getDriver().get(url);
+        search_page = new Search_Page();
+    }
+
     @Test
     public void Nasa_Search_Special_Char_Test() {
 //        1.	Go to https://www.nasa.gov/
@@ -12,5 +26,10 @@ public class Nasa_Search_Special_Char_Test extends Base_Test {
 //        4.	Check if the page shows the message "Too Many Special Characters".
         search_page.verifyTooManyErrorMessage("Too Many Special Characters");
 
+    }
+
+    @AfterMethod
+    public void TearnDown() {
+        Driver.closeDriver();
     }
 }

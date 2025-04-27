@@ -1,10 +1,26 @@
 package positive_Test;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page.Filter_Page;
+import page.Search_Page;
+import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class NASA_Search_Results_Advanced_Filtering_and_Cleaning_Test extends Base_Test {
+public class NASA_Search_Results_Advanced_Filtering_and_Cleaning_Test {
+    Search_Page search_page;
+    Filter_Page filter_page;
+    String url = ConfigurationReader.getProperty("address");
+
+    @BeforeMethod
+    public void SetUp() {
+        Driver.getDriver().get(url);
+        search_page = new Search_Page();
+        filter_page = new Filter_Page();
+    }
+
     @Test
     public void NASA_Search_Results_Advanced_Filtering_and_Cleaning_Test() throws InterruptedException {
 //        1.	Go to https://www.nasa.gov/
@@ -37,7 +53,10 @@ public class NASA_Search_Results_Advanced_Filtering_and_Cleaning_Test extends Ba
         filter_page.clickClearFilterButton();
 
 //        8.	Verify that filters are cleared and results are reloaded.
+    }
 
-
+    @AfterMethod
+    public void TearnDown() {
+        Driver.closeDriver();
     }
 }

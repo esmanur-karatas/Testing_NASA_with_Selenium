@@ -1,9 +1,26 @@
 package positive_Test;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page.Images_Page;
+import page.Tabbar_Multimedia_Page;
+import utilities.ConfigurationReader;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class Multimedia_Images_Page_Test extends Base_Test {
+public class Multimedia_Images_Page_Test {
+    Tabbar_Multimedia_Page tabbar_multimedia_page;
+    Images_Page images_page;
+    String url = ConfigurationReader.getProperty("address");
+
+    @BeforeMethod
+    public void SetUp() {
+        Driver.getDriver().get(url);
+        tabbar_multimedia_page = new Tabbar_Multimedia_Page();
+        images_page = new Images_Page();
+    }
+
     @Test
     public void Multimedia_Images_Page_Test() throws InterruptedException {
 //        1.	Go to  https://www.nasa.gov/
@@ -26,5 +43,10 @@ public class Multimedia_Images_Page_Test extends Base_Test {
         images_page.verifyDownloadButton();
         images_page.verifyShareButton();
 
+    }
+
+    @AfterMethod
+    public void TearnDown() {
+        Driver.closeDriver();
     }
 }

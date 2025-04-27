@@ -1,15 +1,29 @@
 package positive_Test;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page.Footer_Page;
 import utilities.ConfigurationReader;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class NASA_Footer_Social_Media_Links_Validation_Test extends Base_Test {
+public class NASA_Footer_Social_Media_Links_Validation_Test {
+    Footer_Page footer_page;
+
     String facebookUrl = ConfigurationReader.getProperty("facebookUrl");
     String instagramUrl = ConfigurationReader.getProperty("instagramUrl");
     String xUrl = ConfigurationReader.getProperty("xUrl");
     String youtubeUrl = ConfigurationReader.getProperty("youtubeUrl");
 
+
+    String url = ConfigurationReader.getProperty("address");
+
+    @BeforeMethod
+    public void SetUp() {
+        Driver.getDriver().get(url);
+        footer_page = new Footer_Page();
+    }
 
     @Test
     public void NASA_Footer_Social_Media_Links_Validation_Test() throws InterruptedException {
@@ -50,7 +64,10 @@ public class NASA_Footer_Social_Media_Links_Validation_Test extends Base_Test {
         footer_page.clickYoutubeIcon();
         ReusableMethods.verifyNewTabUrlIs(youtubeUrl);
         ReusableMethods.closeCurrentTabAndSwitchBack();
+    }
 
-
+    @AfterMethod
+    public void TearnDown() {
+        Driver.closeDriver();
     }
 }

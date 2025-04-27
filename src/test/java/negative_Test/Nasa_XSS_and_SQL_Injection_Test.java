@@ -1,8 +1,22 @@
 package negative_Test;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page.Search_Page;
+import utilities.ConfigurationReader;
+import utilities.Driver;
 
-public class Nasa_XSS_and_SQL_Injection_Test extends Base_Test {
+public class Nasa_XSS_and_SQL_Injection_Test {
+    Search_Page search_page;
+    String url = ConfigurationReader.getProperty("address");
+
+    @BeforeMethod
+    public void SetUp() {
+        Driver.getDriver().get(url);
+        search_page = new Search_Page();
+    }
+
     @Test
     public void Nasa_XSS_and_SQL_Injection_Test() {
 //        1.	Go to https://www.nasa.gov/
@@ -22,5 +36,10 @@ public class Nasa_XSS_and_SQL_Injection_Test extends Base_Test {
 //        does not cause an unexpected database error or security vulnerability.
         search_page.inputSerachBox("Search Results for: sql injection attempt");
 
+    }
+
+    @AfterMethod
+    public void TearnDown() {
+        Driver.closeDriver();
     }
 }
