@@ -1,0 +1,52 @@
+name: Testing NASA Website with Selenium and TestNG 🚀
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+  id-token: write
+
+jobs:
+  run-selenium-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: 🌐 Set up Chrome for Selenium
+        uses: browser-actions/setup-chrome@v1
+
+      - name: 🚀 Cache Maven Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: maven-
+
+      - name: 📦 Install Dependencies
+        run: mvn clean install -DskipTests
+
+      - name: 🧪 Run Selenium Tests with TestNG
+        run: mvn test -DsuiteXmlFile=testng.xml
+
+      - name: 📤 Upload Test Reports (Extent Reports, TestNG HTML output)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: test-output/
