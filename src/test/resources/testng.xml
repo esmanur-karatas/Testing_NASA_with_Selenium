@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Test Suite" parallel="false">
+<suite name="Test Suite" parallel="true" >
     <test name="Broken_Image_Test Test Report">
         <classes>
             <class name="negative_Test.Broken_Image_Test"/>

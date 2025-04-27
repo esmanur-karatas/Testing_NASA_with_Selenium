@@ -1,4 +1,4 @@
-name: Nasa Test
+name: API Test Automation
 
 on:
   push:
@@ -22,11 +22,11 @@ jobs:
       - name: 🛎️ Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 🔧 Set up JDK 11
+      - name: 🔧 Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '11'
+          java-version: '17'
 
       - name: 🚀 Cache Maven Dependencies
         uses: actions/cache@v3
@@ -39,4 +39,11 @@ jobs:
         run: mvn clean install -DskipTests
 
       - name: 🧪 Run TestNG API Tests with Extent Reports
-        run: mvn clean test -DsuiteXmlFile=testng.xml
+        run: mvn test -DsuiteXmlFile=testng.xml
+
+      - name: 📤 Upload Test Results (HTML)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: test-output/
