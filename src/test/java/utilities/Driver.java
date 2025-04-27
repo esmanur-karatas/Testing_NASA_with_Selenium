@@ -25,6 +25,8 @@ public class Driver {
                     options.addArguments("--disable-blink-features=AutomationControlled");
                     options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
                     options.setExperimentalOption("useAutomationExtension", false);
+                    options.addArguments("user-data-dir=/path/to/unique/directory");
+                    options.addArguments("--no-sandbox", "--disable-dev-shm-usage");
 
                     driver = new ChromeDriver(options);
                     driver.manage().window().maximize();
