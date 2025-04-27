@@ -39,7 +39,7 @@ jobs:
         run: mvn clean install -DskipTests
 
       - name: 🧪 Run TestNG API Tests with Extent Reports
-        run: mvn test -DsuiteXmlFile=testng.xml
+        run: mvn clean test -DsuiteXmlFile=testng.xml
 
       - name: 📤 Upload Test Results (HTML)
         if: always()
