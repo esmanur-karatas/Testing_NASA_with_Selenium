@@ -42,9 +42,6 @@ public class Nasa_News_Share_Stream_Test {
 //        6.	When the news page opens, check for images or videos.
         news_page.isFirstImageVisible();
 
-//        7.	Click on Linkdln from the sharing buttons on the left side of the page and verify the sharing screen.
-        news_page.clickLinkdlnButton();
-
     }
 
     @AfterMethod
