@@ -1,0 +1,94 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Test Suite" parallel="false">
+    <test name="Broken_Image_Test Test Report">
+        <classes>
+            <class name="negative_Test.Broken_Image_Test"/>
+        </classes>
+    </test>
+    <test name="Nasa_404_Error_And_Home_Redirect_Test Test Report">
+        <classes>
+            <class name="negative_Test.Nasa_404_Error_And_Home_Redirect_Test"/>
+        </classes>
+    </test>
+    <test name="Nasa_Mars_Search_No_Results_Test Test Report">
+        <classes>
+            <class name="negative_Test.Nasa_Mars_Search_No_Results_Test"/>
+        </classes>
+    </test>
+    <test name="Nasa_Newsletter_Form_Validation_Test Test Report">
+        <classes>
+            <class name="negative_Test.Nasa_Newsletter_Form_Validation_Test"/>
+        </classes>
+    </test>
+    <test name="Nasa_Newsletter_Invalid_Email_Test Test Report">
+        <classes>
+            <class name="negative_Test.Nasa_Newsletter_Invalid_Email_Test"/>
+        </classes>
+    </test>
+    <test name="Nasa_Search_Negative_Test Test Report">
+        <classes>
+            <class name="negative_Test.Nasa_Search_Negative_Test"/>
+        </classes>
+    </test>
+    <test name="Nasa_Search_Special_Char_And_Invalid_Text_Test Test Report">
+        <classes>
+            <class name="negative_Test.Nasa_Search_Special_Char_And_Invalid_Text_Test"/>
+        </classes>
+    </test>
+    <test name="Nasa_Search_Special_Char_Test Test Report">
+        <classes>
+            <class name="negative_Test.Nasa_Search_Special_Char_Test"/>
+        </classes>
+    </test>
+    <test name="Nasa_XSS_and_SQL_Injection_Test Test Report">
+        <classes>
+            <class name="negative_Test.Nasa_XSS_and_SQL_Injection_Test"/>
+        </classes>
+    </test>
+    <test name="Content_Access_and_Video_Verification_Test_with_Moon_Search Test Report">
+        <classes>
+            <class name="positive_Test.Content_Access_and_Video_Verification_Test_with_Moon_Search"/>
+        </classes>
+    </test>
+    <test name="Missions_Page_Access_Test Test Report">
+        <classes>
+            <class name="positive_Test.Missions_Page_Access_Test"/>
+        </classes>
+    </test>
+    <test name="Multimedia_Images_Page_Test Test Report">
+        <classes>
+            <class name="positive_Test.Multimedia_Images_Page_Test"/>
+        </classes>
+    </test>
+    <test name="NASA_Astronaut_Profile_and_PDF_Download_Test Test Report">
+        <classes>
+            <class name="positive_Test.NASA_Astronaut_Profile_and_PDF_Download_Test"/>
+        </classes>
+    </test>
+    <test name="NASA_eBook_Download_Test Test Report">
+        <classes>
+            <class name="positive_Test.NASA_eBook_Download_Test"/>
+        </classes>
+    </test>
+    <test name="NASA_Footer_Social_Media_Links_Validation_Test Test Report">
+        <classes>
+            <class name="positive_Test.NASA_Footer_Social_Media_Links_Validation_Test"/>
+        </classes>
+    </test>
+    <test name="Nasa_News_Share_Stream_Test Test Report">
+        <classes>
+            <class name="positive_Test.Nasa_News_Share_Stream_Test"/>
+        </classes>
+    </test>
+    <test name="NASA_Search_Results_Advanced_Filtering_and_Cleaning_Test Test Report">
+        <classes>
+            <class name="positive_Test.NASA_Search_Results_Advanced_Filtering_and_Cleaning_Test"/>
+        </classes>
+    </test>
+    <test name="NASA_Video_Series_Access_and_Playback_Test Test Report">
+        <classes>
+            <class name="positive_Test.NASA_Video_Series_Access_and_Playback_Test"/>
+        </classes>
+    </test>
+
+</suite>
