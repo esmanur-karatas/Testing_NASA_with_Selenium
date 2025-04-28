@@ -66,4 +66,67 @@ git clone https://github.com/your-username/nasa-website-testing.git
 
 ---
 
-> Happy Testing! 🚀🛡️
+/nasa-website-testing
+│
+├── /tests              # Test cases (organized by feature)
+│   ├── /ui             # UI Tests
+│
+├── /pages              # Page Object Model (POM) classes
+│
+├── /utils              # Utility classes (e.g., DriverManager, TestListeners)
+│
+├── /configs            # Configuration files (config.properties, testng.xml)
+│
+├── /reports            # Test reports (ExtentReports outputs, screenshots)
+│
+├── /drivers            # WebDriver executables (chromedriver.exe etc.)
+│
+├── /jenkins            # Jenkins related files (Jenkinsfile, pipeline scripts)
+│
+├── README.md           # Project overview
+├── pom.xml             # Maven build file (if using Maven)
+├── .gitignore          # Git ignore rules
+└── LICENSE             # License file (MIT recommended)
+
+
+# Maven / Gradle / Build artifacts
+/target/
+*.log
+
+# IntelliJ IDEA / Eclipse / VSCode IDE files
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+*.env
+
+# Selenium WebDriver executables
+/drivers/*.exe
+/drivers/*.zip
+
+# Test report outputs
+/reports/
+allure-results/
+allure-report/
+extent-report/
+
+# TestNG generated output
+test-output/
+
+# Python cache (if any scripts)
+/__pycache__/
+*.pyc
+
+# Jenkins workspace cache
+/workspace/
+
+
