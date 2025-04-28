@@ -67,11 +67,17 @@ git clone https://github.com/your-username/nasa-website-testing.git
 ---
 
 /nasa-website-testing
+
 │
+
 ├── /tests                 # Test cases organized by category
+
 │   ├── /positive_test     # Positive test cases
+
 │   └── /negative_test     # Negative test cases
+
 │
+
 ├── /java                  # Main source code for tests
 │   ├── /pages             # Page Object Model (POM) classes
 │   ├── /utilities         # Utility classes
