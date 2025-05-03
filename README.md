@@ -1,41 +1,112 @@
-# NASA Website Testing Project
+# 🚀 NASA Website Testing Project
 
-This project contains automated tests using Java, Selenium, Jenkins, Extent Reports, and TestNG to verify the NASA website's functionality.
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![Selenium](https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white)
+![TestNG](https://img.shields.io/badge/TestNG-FF6347?style=for-the-badge&logo=apache&logoColor=white)
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
+![Extent Reports](https://img.shields.io/badge/Extent_Reports-006400?style=for-the-badge&logo=report&logoColor=white)
 
-## Test Scenarios
+---
 
-### Positive Tests
+This project contains automated tests developed with **Java**, **Selenium**, **Jenkins**, **Extent Reports**, and **TestNG** to verify the NASA website's functionality across multiple areas.
 
-- **Missions Page Access**: Verifies access to the "Missions" page and checks for the NASA logo.
-- **NASA News Share Stream**: Verifies sharing functionality on news pages.
-- **NASA+ Video Playback**: Verifies video playback for NASA+ series.
-- **Content Access & Video**: Checks search results for "Moon" and video functionality.
-- **Footer Social Media Links**: Validates footer social media links.
-- **Multimedia Images Page**: Verifies image gallery and download functionality.
-- **Search Filter & Clean**: Tests Mars search with filters and clearing.
-- **e-Book Download**: Validates download of the book "Archaeology, Anthropology, and Interstellar Communication".
-- **Astronaut Profile & PDF**: Verifies astronaut profile page and PDF download.
+---
 
-### Negative Tests
+## 📋 Test Scenarios
 
-- **Search Negative**: Tests search with empty input and special characters.
-- **404 Error & Home Redirect**: Verifies 404 errors and home page redirection.
-- **Newsletter Form Validation**: Tests invalid email and blank form submission.
-- **XSS & SQL Injection**: Verifies the site’s response to XSS and SQL injection attempts.
-- **Mars Search No Results**: Verifies no results message for Mars search with applied filters.
-- **Broken Image Test**: Tests how the site handles missing images with image loading disabled.
+### ✅ Positive Tests
+- **Missions Page Access**: Verify access to the "Missions" page and presence of the NASA logo.
+- **NASA News Share Stream**: Verify sharing functionality on news pages.
+- **NASA+ Video Playback**: Verify video playback functionality for NASA+ series.
+- **Content Access & Video**: Search for "Moon" and verify access to video content.
+- **Footer Social Media Links**: Validate all footer social media links.
+- **Multimedia Images Page**: Verify the image gallery and download functionality.
+- **Search Filter & Clean**: Test the search functionality for "Mars" with filters and clearing.
+- **e-Book Download**: Validate download of the e-Book "Archaeology, Anthropology, and Interstellar Communication".
+- **Astronaut Profile & PDF**: Verify astronaut profile pages and PDF downloads.
 
-## Tools & Technologies
-- **Java**: Programming language for writing tests.
-- **Selenium**: Tool for automating browser actions.
-- **TestNG**: Testing framework for managing test cases.
-- **Jenkins**: CI tool for running tests automatically.
-- **Extent Reports**: Reporting tool for generating test results.
+### ❌ Negative Tests
+- **Search Negative**: Test searches with empty input and special characters.
+- **404 Error & Home Redirect**: Verify 404 error pages and redirection back to the homepage.
+- **Newsletter Form Validation**: Test invalid email input and blank form submissions.
+- **XSS & SQL Injection**: Verify the website’s response to XSS and SQL Injection attempts.
+- **Mars Search No Results**: Test handling of no results when filters are applied.
+- **Broken Image Test**: Verify site behavior when images fail to load.
 
-## Setup & Running Tests
-1. Clone this repository.
-2. Set up Java, Selenium WebDriver, and TestNG.
-3. Run tests via TestNG and generate reports with Extent Reports.
+---
 
-## Conclusion
-This repository ensures the proper functioning and security of the NASA website through positive and negative test cases.
+## 🛠 Tools & Technologies
+
+| Tool/Technology | Purpose |
+| :-------------- | :------ |
+| **Java**         | Programming language for writing tests |
+| **Selenium WebDriver** | Browser automation tool |
+| **TestNG**       | Testing framework for managing test cases |
+| **Jenkins**      | CI/CD tool for automating test execution |
+| **Extent Reports** | Reporting tool for test results |
+
+---
+
+## ⚙️ Setup & Running Tests
+
+1. **Clone this repository**:
+
+```bash
+git clone https://github.com/your-username/nasa-website-testing.git
+```
+
+2. **Install/Set up the following**:
+   - Java (JDK 8 or later)
+   - Selenium WebDriver
+   - TestNG
+
+3. **Run tests** using TestNG.
+
+4. **Generate reports** automatically using Extent Reports.
+
+---
+
+/nasa-website-testing
+
+│
+
+├── /tests                 # Test cases organized by category
+
+│   ├── /positive_test     # Positive test cases
+
+│   └── /negative_test     # Negative test cases
+
+│
+
+├── /java                  # Main source code for tests
+
+│   ├── /pages             # Page Object Model (POM) classes
+
+│   ├── /utilities         # Utility classes
+
+│   │   ├── /ConfigurationReader # Read configuration files (e.g., config.properties)
+
+│   │   ├── /Driver        # WebDriver setup and utilities
+
+│   │   └── /ReusableMethod  # Reusable methods for test steps
+
+│   └── /resources         # Resources folder containing testng.xml
+
+│
+
+├── /target                # Build output folder
+
+│   └── /surefire-reports  # Test reports generated by Surefire
+
+│
+
+├── README.md              # Project overview, setup instructions
+
+├── pom.xml                # Maven build file (if using Maven)
+
+├── .gitignore             # Git ignore rules
+
+└── LICENSE                # License file (MIT recommended)
+
+
+
