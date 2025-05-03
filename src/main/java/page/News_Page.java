@@ -3,7 +3,6 @@ package page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import utilities.Driver;
 
 import java.util.List;
@@ -28,10 +27,8 @@ public class News_Page {
     @FindBy(xpath = "//a[@rel='noopener']")
     private WebElement signUpButton;
 
-    public void verifyNewsReleasesTitle() {
-        String expectedTitle = "News Releases";
-        String actualTitle = newsReleasesTitle.getText();
-        Assert.assertEquals(actualTitle, expectedTitle);
+    public WebElement verifyNewsReleasesTitle() {
+        return newsReleasesTitle;
     }
 
     public void clickFirstNews() {

@@ -1,5 +1,6 @@
 package negative_Test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -23,11 +24,19 @@ public class Nasa_Search_Special_Char_And_Invalid_Text_Test {
 //        2. Type !@#$%^&*() in the search box.
 //        Verify that the message "Sorry" Verify that the message is displayed.
         search_page.inputSerachBox("!@#$%^&*()");
-        search_page.verifyErrorMessage("Sorry");
+        String expectedText = "Sorry".toLowerCase();
+        String actualText = search_page.verifyErrorMessage().getText().toLowerCase();
+
+        Assert.assertTrue(actualText.contains(expectedText),
+                "Expected to find '" + expectedText + "' in the text, but got: " + actualText);
 
 //        3. Type "mARSSSS" in the search box.”Sorry" message is displayed.
         search_page.inputSerachBox("mARSSSS");
-        search_page.verifyErrorMessage("Sorry");
+        String expectedText1 = "Sorry".toLowerCase();
+        String actualText1 = search_page.verifyErrorMessage().getText().toLowerCase();
+
+        Assert.assertTrue(actualText1.contains(expectedText1),
+                "Expected to find '" + expectedText1 + "' in the text, but got: " + actualText1);
     }
 
     @AfterMethod

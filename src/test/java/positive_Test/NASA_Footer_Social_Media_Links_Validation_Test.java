@@ -1,5 +1,6 @@
 package positive_Test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -37,7 +38,10 @@ public class NASA_Footer_Social_Media_Links_Validation_Test {
 
 //        4. On the page that opens, verify that the url says "https://www.facebook.com/NASA”.
         ReusableMethods.sleep(6000);
-        ReusableMethods.verifyNewTabUrlIs(facebookUrl);
+        ReusableMethods.verifyNewTabUrlIs();
+        String expectedUrl = facebookUrl;
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(actualUrl, expectedUrl);
 
 //        5.	Close the tab.
 //        6.	Go back to the previous tab.
@@ -48,7 +52,10 @@ public class NASA_Footer_Social_Media_Links_Validation_Test {
         footer_page.clickInstagramIcon();
 
 //        8.	On the page that opens, verify that the url is "https://www.instagram.com/nasa/".
-        ReusableMethods.verifyNewTabUrlIs(instagramUrl);
+        ReusableMethods.verifyNewTabUrlIs();
+        String expectedInstagramUrl = instagramUrl;
+        String actualInstagramUrl = Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(actualInstagramUrl, expectedInstagramUrl);
 
 //        9.	Close the tab.
         ReusableMethods.closeCurrentTabAndSwitchBack();
@@ -56,13 +63,19 @@ public class NASA_Footer_Social_Media_Links_Validation_Test {
 //        10.	Click the X icon, verify that the url is "https://x.com/NASA" on the page that opens and close the tab.
         ReusableMethods.scrollToFooter();
         footer_page.clickXIcon();
-        ReusableMethods.verifyNewTabUrlIs(xUrl);
+        ReusableMethods.verifyNewTabUrlIs();
+        String expectedXUrl = xUrl;
+        String actualXUrl = Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(actualXUrl, expectedXUrl);
         ReusableMethods.closeCurrentTabAndSwitchBack();
 
 //        11.	Click the Youtube icon. on the page that opens, verify that the url is "https://www.youtube.com/@NASA" and close the tab.
         ReusableMethods.scrollPageTwice();
         footer_page.clickYoutubeIcon();
-        ReusableMethods.verifyNewTabUrlIs(youtubeUrl);
+        ReusableMethods.verifyNewTabUrlIs();
+        String expectedYoutubeUrl = youtubeUrl;
+        String actualYoutubeUrl = Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(actualYoutubeUrl, expectedYoutubeUrl);
         ReusableMethods.closeCurrentTabAndSwitchBack();
     }
 

@@ -1,5 +1,6 @@
 package positive_Test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,7 +10,7 @@ import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class NASA_Astronaut_Profile_and_PDF_Download_Test{
+public class NASA_Astronaut_Profile_and_PDF_Download_Test {
     Tabbar_Explore_Page tabbar_explore_page;
     Astronauts_Page astronauts_page;
     String url = ConfigurationReader.getProperty("address");
@@ -20,6 +21,7 @@ public class NASA_Astronaut_Profile_and_PDF_Download_Test{
         tabbar_explore_page = new Tabbar_Explore_Page();
         astronauts_page = new Astronauts_Page();
     }
+
     @Test
     public void NASA_Astronaut_Profile_and_PDF_Download_Test() throws InterruptedException {
 //        1.	Go to https://www.nasa.gov/
@@ -40,7 +42,10 @@ public class NASA_Astronaut_Profile_and_PDF_Download_Test{
         astronauts_page.clickBiographyButton();
 
 //        7.	Verify the "Summary" heading on the page that opens.
-        astronauts_page.verifySummaryText("Summary");
+        String expectedText = "Summary";
+        String actualText = astronauts_page.verifySummaryText().getText();
+
+        Assert.assertEquals(actualText, expectedText);
 
 //        8.	Scroll to the bottom of the page.
         ReusableMethods.scrollToFooter();
@@ -56,7 +61,7 @@ public class NASA_Astronaut_Profile_and_PDF_Download_Test{
     }
 
     @AfterMethod
-    public void TearnDown(){
+    public void TearnDown() {
         Driver.closeDriver();
     }
 }

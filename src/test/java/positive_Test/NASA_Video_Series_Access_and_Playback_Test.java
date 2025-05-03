@@ -1,5 +1,6 @@
 package positive_Test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -35,8 +36,7 @@ public class NASA_Video_Series_Access_and_Playback_Test {
         tabbar_new_and_events_page.clickVideoSeriesOnNASAButton();
 
 //            4.	On the page that opens, verify the title "Explore Series".
-        series_page.verifyExploreSeriesTitle();
-
+        Assert.assertTrue(series_page.verifyExploreSeriesTitle().isDisplayed());
 //            5.	Click on "Our Alien Earth".
         series_page.clickOurAlienEarthTitle();
 

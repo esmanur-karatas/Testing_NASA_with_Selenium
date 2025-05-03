@@ -1,5 +1,6 @@
 package negative_Test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -48,8 +49,10 @@ public class Nasa_Newsletter_Invalid_Email_Test {
 
 //        8.	Check if the warning message "Please enter your email address in name@email.com format." appears in the email.
         ReusableMethods.sleep(6000);
-        subscribe_form_page.verifyEmailErrorMessageText("Please enter your email address in name@email.com format.");
 
+        String expectedMessage = "Please enter your email address in name@email.com format.";
+        String actualMessage = subscribe_form_page.verifyEmailErrorMessageText().getText();
+        Assert.assertEquals(actualMessage,expectedMessage);
     }
 
     @AfterMethod

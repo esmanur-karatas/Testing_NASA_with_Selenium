@@ -1,5 +1,6 @@
 package negative_Test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -44,7 +45,10 @@ public class Nasa_Newsletter_Form_Validation_Test {
 
 //        8.	Check whether the warning message "This field is required" is written in the email.
         ReusableMethods.sleep(6000);
-        subscribe_form_page.verifyEmailErrorMessageText("This field is required.");
+
+        String expectedMessage = "This field is required.";
+        String actualMessage = subscribe_form_page.verifyEmailErrorMessageText().getText();
+        Assert.assertEquals(actualMessage,expectedMessage);
 
     }
 

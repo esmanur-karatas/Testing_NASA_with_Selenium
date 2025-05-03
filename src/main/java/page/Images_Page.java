@@ -3,11 +3,10 @@ package page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import utilities.Driver;
 
 public class Images_Page {
-    public Images_Page(){
+    public Images_Page() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -23,19 +22,19 @@ public class Images_Page {
     @FindBy(xpath = "//*[@id=\"social-share-button\"]/span")
     private WebElement shareButton;
 
-    public void clickGoToGallery(){
+    public void clickGoToGallery() {
         goToGalleryButton.click();
     }
 
-    public void clickFirstImage(){
+    public void clickFirstImage() {
         firstImage.click();
     }
 
-    public void verifyDownloadButton(){
-        Assert.assertTrue(downloadButton.isDisplayed());
+    public WebElement verifyDownloadButton() {
+        return downloadButton;
     }
 
-    public void verifyShareButton(){
-        Assert.assertTrue(shareButton.isDisplayed());
+    public WebElement verifyShareButton() {
+        return shareButton;
     }
 }

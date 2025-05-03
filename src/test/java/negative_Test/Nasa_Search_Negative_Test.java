@@ -1,5 +1,6 @@
 package negative_Test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -23,7 +24,12 @@ public class Nasa_Search_Negative_Test {
 //        2.	Search the search box on the homepage with nothing typed in and see if the text "Sorry"
 
         search_page.inputSerachBox(" ");
-        search_page.verifyErrorMessage("Sorry");
+        
+        String expectedText = "Sorry".toLowerCase();
+        String actualText = search_page.verifyErrorMessage().getText().toLowerCase();
+
+        Assert.assertTrue(actualText.contains(expectedText),
+                "Expected to find '" + expectedText + "' in the text, but got: " + actualText);
     }
 
     @AfterMethod

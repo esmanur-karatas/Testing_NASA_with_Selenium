@@ -3,7 +3,6 @@ package page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import utilities.Driver;
 
 public class Filter_Page {
@@ -67,12 +66,12 @@ public class Filter_Page {
         applyFilterButton.click();
     }
 
-    public void verifyArticlesFilter() {
-        Assert.assertTrue(arcticleIsDisplayed.isDisplayed());
+    public WebElement verifyArticlesFilter() {
+        return arcticleIsDisplayed;
     }
 
-    public void verifyCategoriesFilter() {
-        Assert.assertTrue(categoriesIsDisplayed.isDisplayed());
+    public WebElement verifyCategoriesFilter() {
+        return categoriesIsDisplayed;
     }
 
     public void clickClearFilterButton() {
@@ -91,10 +90,7 @@ public class Filter_Page {
         languageEspanol.click();
     }
 
-    public void verifyErrorMessageText(String errorMessage) {
-        String extendMessage = errorMessage;
-        String actualMessage = errorMessageText.getText();
-
-        Assert.assertEquals(actualMessage, extendMessage);
+    public WebElement verifyErrorMessageText() {
+        return errorMessageText;
     }
 }

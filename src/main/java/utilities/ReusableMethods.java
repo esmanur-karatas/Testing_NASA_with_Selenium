@@ -1,7 +1,6 @@
 package utilities;
 
 import org.openqa.selenium.*;
-import org.testng.Assert;
 
 import java.io.File;
 import java.util.*;
@@ -132,15 +131,12 @@ public class ReusableMethods {
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
-    public static void verifyNewTabUrlIs(String expectedUrl) {
+    public static void verifyNewTabUrlIs() {
 
         Set<String> windowHandles = Driver.getDriver().getWindowHandles();
         List<String> windowList = new ArrayList<>(windowHandles);
 
         Driver.getDriver().switchTo().window(windowList.get(1));
-
-        String actualUrl = Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(actualUrl, expectedUrl);
 
         // (Optional) you can go back to the first tab:
         // Driver.getDriver().switchTo().window(windowList.get(0));

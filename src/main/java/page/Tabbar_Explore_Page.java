@@ -3,7 +3,6 @@ package page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import utilities.Driver;
 
 public class Tabbar_Explore_Page {
@@ -18,10 +17,10 @@ public class Tabbar_Explore_Page {
     @FindBy(xpath = "(//span[text()='Missions'])[1]")
     private WebElement missionsButton;
 
-    @FindBy (xpath = "//h3[text()='Missions']")
+    @FindBy(xpath = "//h3[text()='Missions']")
     private WebElement missionText;
 
-    @FindBy(id="header-logo")
+    @FindBy(id = "header-logo")
     private WebElement nasaLogo;
 
     @FindBy(xpath = "//*[@id=\"global-navigation\"]/div/div/div[1]/div/ul/li[3]/a/span")
@@ -34,33 +33,31 @@ public class Tabbar_Explore_Page {
         exploreButton.click();
     }
 
-    public void clickMissonsButton(){
+    public void clickMissonsButton() {
         missionsButton.click();
     }
 
-    public void clickNasaLogo(){
+    public void clickNasaLogo() {
         nasaLogo.click();
     }
-    public void verifyMissionText(String verifyText){
-        String expectedText = verifyText;
-        String actualText = missionText.getText();
 
-        Assert.assertEquals(actualText,expectedText);
+    public WebElement verifyMissionText() {
+       return missionText;
     }
 
-    public void clickMissionText(){
+    public void clickMissionText() {
         missionText.click();
     }
 
-    public void verifyNasaLogo(){
-        Assert.assertTrue(nasaLogo.isDisplayed());
+    public WebElement verifyNasaLogo() {
+        return nasaLogo;
     }
 
-    public void clickHumansinSpaceButton(){
+    public void clickHumansinSpaceButton() {
         humansinSpaceButton.click();
     }
 
-    public void clickAstronautsButton(){
+    public void clickAstronautsButton() {
         astronautsButton.click();
     }
 }

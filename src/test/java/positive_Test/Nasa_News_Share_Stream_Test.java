@@ -1,10 +1,10 @@
 package positive_Test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page.News_Page;
-import page.Tabbar_Multimedia_Page;
 import page.Tabbar_New_And_Events_Page;
 import utilities.ConfigurationReader;
 import utilities.Driver;
@@ -32,7 +32,9 @@ public class Nasa_News_Share_Stream_Test {
         tabbar_new_and_events_page.clickNewAndEventsText();
 
 //        4.	Verify the "News Releases" heading on the page that opens.
-        news_page.verifyNewsReleasesTitle();
+        String expectedTitle = "News Releases";
+        String actualTitle = news_page.verifyNewsReleasesTitle().getText();
+        Assert.assertEquals(actualTitle, expectedTitle);
 
 //        5.	Click on the first news item.
         ReusableMethods.scrollPageTwice();

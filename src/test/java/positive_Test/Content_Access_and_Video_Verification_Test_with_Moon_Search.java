@@ -1,5 +1,6 @@
 package positive_Test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -28,10 +29,15 @@ public class Content_Access_and_Video_Verification_Test_with_Moon_Search {
         search_page.inputSerachBox("Moon");
 
 //        3.	On the page that opens, check if "Search Results for: Moon" appears on the page.
-        search_page.verifySearchResultTitle("Search Results for: Moon");
+        String expectedTitle = "Search Results for: Moon";
+        String actualTitle = search_page.verifySearchResultTitle().getText();
+        Assert.assertEquals(actualTitle, expectedTitle);
 
 //        4.	Check if the first search result that comes up has the word "Moon" in it.
-        search_page.VerifyContainsSearchedWord("Moon");
+        String expectedText = "Moon".toLowerCase();
+        String actualText = search_page.VerifyContainsSearchedWord().getText().toLowerCase();
+        Assert.assertTrue(actualText.contains(expectedText),
+                "Expected to find '" + expectedText + "' in the text, but got: " + actualText);
 
 //        5.	Click on the first search result.
         search_page.clickContainsSearchedWord();

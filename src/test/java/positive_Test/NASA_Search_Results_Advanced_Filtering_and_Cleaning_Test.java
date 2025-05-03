@@ -1,5 +1,6 @@
 package positive_Test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -28,7 +29,9 @@ public class NASA_Search_Results_Advanced_Filtering_and_Cleaning_Test {
         search_page.inputSerachBox("Mars");
 
 //        3.	On the search results page that opens, check if the text "Search Results for: Mars" text is displayed.
-        search_page.verifySearchResultTitle("Search Results for: Mars");
+        String expectedTitle = "Search Results for: Mars";
+        String actualTitle = search_page.verifySearchResultTitle().getText();
+        Assert.assertEquals(actualTitle, expectedTitle);
 
 //        4.	From the filter panel on the left side of the page, make the following selections respectively:
 //•	 Content Type: "Articles"
@@ -46,8 +49,8 @@ public class NASA_Search_Results_Advanced_Filtering_and_Cleaning_Test {
         ReusableMethods.scrollUpOne(Driver.getDriver());
 
 //        6.	On the page, check that the applied filters are selected and visible.
-        filter_page.verifyArticlesFilter();
-        filter_page.verifyCategoriesFilter();
+        Assert.assertTrue(filter_page.verifyArticlesFilter().isDisplayed());
+        Assert.assertTrue(filter_page.verifyCategoriesFilter().isDisplayed());
 
 //        7.	Click on the Clear Filters button.
         filter_page.clickClearFilterButton();

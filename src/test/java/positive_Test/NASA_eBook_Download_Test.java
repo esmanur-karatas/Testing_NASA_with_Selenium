@@ -1,5 +1,6 @@
 package positive_Test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -31,7 +32,9 @@ public class NASA_eBook_Download_Test {
         tabbar_multimedia_page.clickEBookButton();
 
 //        4.	Verify that the title "NASA e-Books" appears on the page that opens.
-        eBooks_page.verifyTitleText("NASA e-Books");
+        String expectedTitle = "NASA e-Books";
+        String actualTitle = eBooks_page.verifyTitleText().getText();
+        Assert.assertEquals(actualTitle, expectedTitle);
 
 //        5.	Scroll until the book title "Archaeology, Anthropology, and Interstellar Communication" appears.
         ReusableMethods.scrollPageTwice();

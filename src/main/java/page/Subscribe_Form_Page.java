@@ -4,7 +4,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import utilities.Driver;
 
 public class Subscribe_Form_Page {
@@ -29,10 +28,7 @@ public class Subscribe_Form_Page {
         email.sendKeys(mailText, Keys.ENTER);
     }
 
-    public void verifyEmailErrorMessageText(String errorText){
-        String expectedMessage = errorText;
-        String actualMessage = emailErrorMessageText.getText();
-
-        Assert.assertEquals(actualMessage,expectedMessage);
+    public WebElement verifyEmailErrorMessageText(){
+        return emailErrorMessageText;
     }
 }

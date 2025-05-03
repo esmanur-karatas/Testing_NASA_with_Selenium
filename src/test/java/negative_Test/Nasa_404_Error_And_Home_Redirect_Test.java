@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import page.*;
+import page.Tabbar_Explore_Page;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 

@@ -1,5 +1,6 @@
 package positive_Test;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -28,12 +29,15 @@ public class Missions_Page_Access_Test {
         tabbar_explore_page.clickMissonsButton();
 
 //        4.	When the menu opens, check if the "Missions" link is displayed in it.
-        tabbar_explore_page.verifyMissionText("Missions");
+        String expectedText = "Missions";
+        String actualText = tabbar_explore_page.verifyMissionText().getText();
+        Assert.assertEquals(actualText, expectedText);
 
 //        5.	Click on the "Missions" link that appears.
         tabbar_explore_page.clickMissionText();
+
 //        6.	Once the "Missions" page is loaded, check that the NASA logo is visible at the top of the page.
-        tabbar_explore_page.verifyNasaLogo();
+        Assert.assertTrue(tabbar_explore_page.verifyNasaLogo().isDisplayed());
     }
 
     @AfterMethod
