@@ -64,11 +64,3 @@ git clone https://github.com/your-username/nasa-website-testing.git
 
 4. **Generate reports** automatically using Extent Reports.
 
----
-
-
-
-└── LICENSE                # License file (MIT recommended)
-
-
-
